@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen>
         animation2: _animation2,
         animation3: _animation3,
       ),
-      ExploreTab()
+      const ExploreTab()
     ];
 
     return Scaffold(

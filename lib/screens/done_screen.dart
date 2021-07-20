@@ -12,8 +12,8 @@ class _DoneScreenState extends State<DoneScreen> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Icon(Icons.done),
+        children: const <Widget>[
+          Icon(Icons.done),
         ],
       ),
     );

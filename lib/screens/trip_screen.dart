@@ -163,7 +163,7 @@ class _TripScreenState extends State<TripScreen> {
                                 text: 'Confirm',
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (_) => DoneScreen()));
+                                      builder: (_) => const DoneScreen()));
                                 },
                               ),
                             ],
@@ -172,6 +172,7 @@ class _TripScreenState extends State<TripScreen> {
                       );
                     },
                   ),
+                  SizedBox(height: rh(50)),
                 ],
               ),
             ),

@@ -4,12 +4,10 @@ import 'package:tourve/model/country_data.dart';
 
 import '../../constant.dart';
 import '../../core/ui_helper.dart';
-import '../../model/data.dart';
-import '../../model/trip.dart';
 import '../country_screen.dart';
 
 class ExploreTab extends StatefulWidget {
-  ExploreTab({Key? key}) : super(key: key);
+  const ExploreTab({Key? key}) : super(key: key);
 
   @override
   _ExploreTabState createState() => _ExploreTabState();
@@ -18,7 +16,6 @@ class ExploreTab extends StatefulWidget {
 class _ExploreTabState extends State<ExploreTab>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
-  late final Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -26,14 +23,6 @@ class _ExploreTabState extends State<ExploreTab>
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 250),
-    );
-
-    _slideAnimation =
-        Tween<Offset>(begin: Offset(0, 0.5), end: Offset(0, 0)).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.easeIn,
-      ),
     );
 
     // _animationController.forward();
@@ -45,7 +34,7 @@ class _ExploreTabState extends State<ExploreTab>
   final GlobalKey<AnimatedListState> listKey = GlobalKey<AnimatedListState>();
   final List<Country> list = [];
 
-  addItems() {
+  void addItems() {
     Future f = Future(() {});
     countryList.forEach((e) async {
       f = f.then((value) {
@@ -91,7 +80,7 @@ class _ExploreTabState extends State<ExploreTab>
           AnimatedList(
             key: listKey,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             initialItemCount: list.length,
             itemBuilder: (context, index, animation) {
               final country = countryList[index];
