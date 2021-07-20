@@ -18,6 +18,7 @@ class _CountryScreenState extends State<CountryScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
 
+  late final Animation<double> _backgroundAnimation;
   late final Animation<double> _titleAnimation;
   late final Animation<double> _descriptionAnimation;
   late final Animation<Offset> _listAnimation;
@@ -29,6 +30,13 @@ class _CountryScreenState extends State<CountryScreen>
       vsync: this,
       duration: const Duration(milliseconds: 2500),
     );
+
+    // _titleAnimation = Tween<double>(begin: 0.8, end: 5).animate(
+    //   CurvedAnimation(
+    //     parent: _animationController,
+    //     curve: const Interval(0, 0.4, curve: Curves.easeInOut),
+    //   ),
+    // );
 
     _titleAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
