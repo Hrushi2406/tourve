@@ -14,7 +14,53 @@ class CountryScreen extends StatefulWidget {
   _CountryScreenState createState() => _CountryScreenState();
 }
 
-class _CountryScreenState extends State<CountryScreen> {
+class _CountryScreenState extends State<CountryScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _animationController;
+
+  late final Animation<double> _titleAnimation;
+  late final Animation<double> _descriptionAnimation;
+  late final Animation<Offset> _listAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 2500),
+    );
+
+    _titleAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0, 0.4, curve: Curves.easeInOut),
+      ),
+    );
+
+    _descriptionAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0.4, 0.8, curve: Curves.easeInOut),
+      ),
+    );
+    _listAnimation =
+        Tween<Offset>(begin: const Offset(0, 2), end: const Offset(0, 0))
+            .animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0.7, 1, curve: Curves.fastOutSlowIn),
+      ),
+    );
+
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,13 +115,16 @@ class _CountryScreenState extends State<CountryScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Center(
-                    child: Text(
-                      widget.country.name,
-                      textAlign: TextAlign.center,
-                      style: kLargeTitle.copyWith(
-                        fontSize: rf(30),
-                        letterSpacing: 20,
-                        fontWeight: FontWeight.w900,
+                    child: FadeTransition(
+                      opacity: _titleAnimation,
+                      child: Text(
+                        widget.country.name,
+                        textAlign: TextAlign.center,
+                        style: kLargeTitle.copyWith(
+                          fontSize: rf(30),
+                          letterSpacing: 20,
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                     ),
                   ),
@@ -83,15 +132,18 @@ class _CountryScreenState extends State<CountryScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Center(
-                      child: Text(
-                        widget.country.description,
-                        textAlign: TextAlign.center,
-                        style: kQuoteStyle.copyWith(
-                          fontSize: rf(14),
-                          letterSpacing: 0,
-                          height: 1.5,
+                      child: FadeTransition(
+                        opacity: _descriptionAnimation,
+                        child: Text(
+                          widget.country.description,
+                          textAlign: TextAlign.center,
+                          style: kQuoteStyle.copyWith(
+                            fontSize: rf(14),
+                            letterSpacing: 0,
+                            height: 1.5,
 
-                          // fontWeight: FontWeight.w900,
+                            // fontWeight: FontWeight.w900,
+                          ),
                         ),
                       ),
                     ),
@@ -107,10 +159,13 @@ class _CountryScreenState extends State<CountryScreen> {
                       },
                       itemBuilder: (BuildContext context, int index) {
                         final Trip trip = widget.country.places[index];
-                        return NormalCard(
-                          isCountry: true,
-                          trip: trip,
-                          isTextWhite: true,
+                        return SlideTransition(
+                          position: _listAnimation,
+                          child: NormalCard(
+                            isCountry: true,
+                            trip: trip,
+                            isTextWhite: true,
+                          ),
                         );
                       },
                     ),
