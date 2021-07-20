@@ -117,56 +117,9 @@ final moodsMap = [
   },
 ];
 
-final exploreList = [
-  {
-    'title': 'ITALY',
-    'image': 'assets/images/venice.png',
-    'duration': '12 places',
-    'destination': 'Hawai, USA',
-    'price': '\$386',
-    'experiences':
-        " The Italian places of culture (which include museums, attractions, parks, archives and libraries) amounted to 6,610. Active hotel businesses are 33,000, while non-hotel businesses are 183,000. The tourist flow in the coastal resorts is 53% the best equipped cities are Grosseto for farmhouses, Vieste for campsites and tourist villages  and Cortina d'Ampezzo mountain huts. ",
-    'extraDuration': "For 3 days and 2 night",
-  },
-  {
-    'title': 'SPAIN',
-    'image': 'assets/images/venice.png',
-    'duration': '8 places',
-    'destination': 'Hawai, USA',
-    'price': '\$386',
-    'experiences': 'Something goes here',
-    'extraDuration': 'For 3 days and 2 nights',
-  },
-  {
-    'title': 'FRANCE',
-    'image': 'assets/images/venice.png',
-    'duration': '15 places',
-    'destination': 'Hawai, USA',
-    'price': '\$386',
-    'experiences': 'Something goes here',
-    'extraDuration': 'For 3 days and 2 nights',
-  },
-  {
-    'title': 'USA',
-    'image': 'assets/images/venice.png',
-    'duration': '11 places',
-    'destination': 'Hawai, USA',
-    'price': '\$386',
-    'experiences': 'Something goes here',
-    'extraDuration': 'For 3 days and 2 nights',
-  },
-  {
-    'title': 'INDIA',
-    'image': 'assets/images/venice.png',
-    'duration': '24 places',
-    'destination': 'Hawai, USA',
-    'price': '\$386',
-    'experiences': 'Something goes here',
-    'extraDuration': 'For 3 days and 2 nights',
-  },
-];
-
 final List<Trip> upcomingTrips =
     upcomingTripsMap.map((map) => Trip.fromMap(map)).toList();
 
-final List<Trip> explore = exploreList.map((map) => Trip.fromMap(map)).toList();
+final List<Trip> countryTrips =
+    homeCountryMap.map((map) => Trip.fromMap(map)).toList();
+final List<Trip> moodTrips = moodsMap.map((map) => Trip.fromMap(map)).toList();

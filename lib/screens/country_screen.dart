@@ -73,6 +73,8 @@ class _CountryScreenState extends State<CountryScreen> {
                       widget.country.name,
                       textAlign: TextAlign.center,
                       style: kLargeTitle.copyWith(
+                        fontSize: rf(30),
+                        letterSpacing: 20,
                         fontWeight: FontWeight.w900,
                       ),
                     ),

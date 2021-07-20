@@ -60,15 +60,16 @@ class _HomeTabState extends State<HomeTab> {
           title: 'Explore by country',
           isCountry: true,
           animation: widget.animation2,
-          tripsList: upcomingTrips,
+          tripsList: countryTrips,
         ),
 
         SizedBox(height: rh(30)),
 
         CardWithTitle(
           title: 'Explore by moods',
+          isCountry: true,
           animation: widget.animation3,
-          tripsList: upcomingTrips,
+          tripsList: moodTrips,
         ),
 
         SizedBox(height: rh(40)),
