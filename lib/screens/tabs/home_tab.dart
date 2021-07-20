@@ -158,14 +158,17 @@ class NormalCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: rw(254),
-              height: rh(147),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  // FadeInImage.assetNetwork(placeholder: trip.image, image: trip.image)
-                  image: AssetImage(trip.image),
-                  fit: BoxFit.cover,
+            Hero(
+              tag: trip.title,
+              child: Container(
+                width: rw(254),
+                height: rh(147),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    // FadeInImage.assetNetwork(placeholder: trip.image, image: trip.image)
+                    image: AssetImage(trip.image),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

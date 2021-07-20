@@ -15,10 +15,11 @@ class CountryScreen extends StatefulWidget {
 }
 
 class _CountryScreenState extends State<CountryScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late final AnimationController _animationController;
+  late final AnimationController _backgroundController;
 
-  late final Animation<double> _backgroundAnimation;
+  late final Animation<double> _layerAnimation;
   late final Animation<double> _titleAnimation;
   late final Animation<double> _descriptionAnimation;
   late final Animation<Offset> _listAnimation;
@@ -31,13 +32,20 @@ class _CountryScreenState extends State<CountryScreen>
       duration: const Duration(milliseconds: 2500),
     );
 
-    // _titleAnimation = Tween<double>(begin: 0.8, end: 5).animate(
-    //   CurvedAnimation(
-    //     parent: _animationController,
-    //     curve: const Interval(0, 0.4, curve: Curves.easeInOut),
-    //   ),
-    // );
+    _backgroundController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300000),
+      lowerBound: 1,
+      upperBound: 60,
+      animationBehavior: AnimationBehavior.preserve,
+    );
 
+    _layerAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: const Interval(0, 0.5, curve: Curves.easeInOut),
+      ),
+    );
     _titleAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
         parent: _animationController,
@@ -61,11 +69,19 @@ class _CountryScreenState extends State<CountryScreen>
     );
 
     _animationController.forward();
+    _backgroundController.forward();
+    _backgroundController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _backgroundController.reverse();
+      }
+    });
   }
 
   @override
   void dispose() {
     _animationController.dispose();
+    _backgroundController.dispose();
+    _backgroundController.removeStatusListener((status) {});
     super.dispose();
   }
 
@@ -76,24 +92,30 @@ class _CountryScreenState extends State<CountryScreen>
         children: [
           Hero(
             tag: widget.country.name,
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(widget.country.image),
-                  fit: BoxFit.cover,
-                ),
-              ),
+            child: ScaleTransition(
+              scale: _backgroundController,
               child: Container(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.black.withOpacity(0),
-                      Colors.black.withOpacity(0.6),
-                      Colors.black,
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+                  image: DecorationImage(
+                    image: AssetImage(widget.country.image),
+                    fit: BoxFit.cover,
                   ),
+                ),
+              ),
+            ),
+          ),
+          FadeTransition(
+            opacity: _layerAnimation,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.black.withOpacity(0),
+                    Colors.black.withOpacity(0.6),
+                    Colors.black,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                 ),
               ),
             ),
