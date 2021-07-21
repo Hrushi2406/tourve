@@ -37,11 +37,14 @@ class _HomeTabState extends State<HomeTab> {
           onTap: () => Navigator.of(context).pop(),
           child: Hero(
             tag: 'tourve',
-            child: Center(
-              child: Text(
-                'TOURVE',
-                style: kLargeTitle.copyWith(
-                  color: Colors.black,
+            child: Material(
+              type: MaterialType.transparency,
+              child: Center(
+                child: Text(
+                  'TOURVE',
+                  style: kLargeTitle.copyWith(
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),

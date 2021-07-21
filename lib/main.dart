@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
 
         return MaterialApp(
           title: 'App',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(fontFamily: 'CircularStd'),
           home: const SplashScreen(),
         );

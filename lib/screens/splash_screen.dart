@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _colorAnimation = ColorTween(
       begin: Colors.black.withOpacity(0),
-      end: Colors.black.withOpacity(0.6),
+      end: Colors.black.withOpacity(0.8),
     ).animate(
       CurvedAnimation(
         parent: _animationController,
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen>
     _quoteAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: const Interval(0.8, 1, curve: Curves.easeIn),
+        curve: const Interval(0.7, 1, curve: Curves.easeIn),
       ),
     );
 
@@ -105,13 +105,16 @@ class _SplashScreenState extends State<SplashScreen>
             },
             child: Hero(
               tag: 'tourve',
-              child: Align(
-                alignment: Alignment.center,
-                child: FadeTransition(
-                  opacity: _nameAnimation,
-                  child: Text(
-                    'TOURVE',
-                    style: kLargeTitle,
+              child: Material(
+                type: MaterialType.transparency,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: FadeTransition(
+                    opacity: _nameAnimation,
+                    child: Text(
+                      'TOURVE',
+                      style: kLargeTitle,
+                    ),
                   ),
                 ),
               ),
