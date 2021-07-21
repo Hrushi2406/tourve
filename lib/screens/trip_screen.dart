@@ -49,21 +49,42 @@ class _TripScreenState extends State<TripScreen> {
                           end: Alignment.bottomCenter,
                         ),
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: rh(20.0)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              widget.trip.title.toUpperCase(),
-                              style: kLargeTitle.copyWith(
-                                letterSpacing: 8,
-                                fontWeight: FontWeight.w900,
-                                fontSize: rf(18),
-                              ),
+                      // child: Padding(
+                      //   padding: EdgeInsets.only(bottom: rh(20.0)),
+                      //   child: Column(
+                      //     mainAxisAlignment: MainAxisAlignment.end,
+                      //     children: [
+                      //       Text(
+                      //         widget.trip.title.toUpperCase(),
+                      //         style: kLargeTitle.copyWith(
+                      //           letterSpacing: 8,
+                      //           fontWeight: FontWeight.w900,
+                      //           fontSize: rf(18),
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: rh(20.0)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            widget.trip.title.toUpperCase(),
+                            style: kLargeTitle.copyWith(
+                              letterSpacing: 8,
+                              fontWeight: FontWeight.w900,
+                              fontSize: rf(18),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

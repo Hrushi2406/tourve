@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tourve/core/navigation.dart';
 import 'package:tourve/screens/trip_screen.dart';
 
 import '../../constant.dart';
@@ -32,13 +33,16 @@ class _HomeTabState extends State<HomeTab> {
       children: <Widget>[
         SizedBox(height: rh(75)),
         //TItle
-        Hero(
-          tag: 'tourve',
-          child: Center(
-            child: Text(
-              'TOURVE',
-              style: kLargeTitle.copyWith(
-                color: Colors.black,
+        GestureDetector(
+          onTap: () => Navigator.of(context).pop(),
+          child: Hero(
+            tag: 'tourve',
+            child: Center(
+              child: Text(
+                'TOURVE',
+                style: kLargeTitle.copyWith(
+                  color: Colors.black,
+                ),
               ),
             ),
           ),
@@ -150,8 +154,9 @@ class NormalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => TripScreen(trip: trip)));
+        navigate(context, TripScreen(trip: trip));
+        // Navigator.of(context)
+        // .push(MaterialPageRoute(builder: (_) => TripScreen(trip: trip)));
       },
       child: SizedBox(
         width: rw(254),

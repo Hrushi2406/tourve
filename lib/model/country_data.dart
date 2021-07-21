@@ -2,8 +2,8 @@ import 'country.dart';
 
 final countryMap = {
   {
-    'name': 'ITALY',
-    'totalPlaces': '6 places',
+    'name': 'SPAIN',
+    'totalPlaces': '18 places',
     'image': 'assets/images/venice.png',
     'description':
         " The Italian places of culture (which include museums, attractions, parks, archives and libraries) amounted to 6,610. Active hotel businesses are 33,000, while non-hotel businesses are 183,000. The tourist flow in the coastal resorts is 53% the best equipped cities are Grosseto for farmhouses, Vieste for campsites and tourist villages  and Cortina d'Ampezzo mountain huts. ",
@@ -12,7 +12,7 @@ final countryMap = {
         'title': 'Milan',
         'image': 'assets/images/venice.png',
         'duration': '5 days',
-        'destination': 'Milan, Italy',
+        'destination': 'Hawai, USA',
         'price': '\$386',
         'experiences':
             'Lorem ipsum doremat something hads to do with the sthihnbgs antd sthat aklg a dshdhd Lorem ipsum doremat something hads to do with the sthihnbgs antd something and dreams come true sthat aklg a dshdhd Lorem ipsum doremat something hads to do with the sthihnbgs antd something and dreams come true sthat aklg a dshdhd ',
@@ -22,7 +22,7 @@ final countryMap = {
         'title': 'Rome',
         'image': 'assets/images/venice.png',
         'duration': '4 days',
-        'destination': 'Rome, Italy',
+        'destination': 'Hawai, USA',
         'price': '\$386',
         'experiences':
             'Roman art and architecture often feature beautiful mosaic tiles and patterns, creating masterpieces that last for centuries. Hosted in a family-owned mosaic studio, this experience provides you with the opportunity to work with local marble tiles to create a traditional Roman mosaic of your own. You will learn about texture, composition and marble tile cutting and hear stories about the history of the craft in Rome.',
@@ -71,8 +71,8 @@ final countryMap = {
     ],
   },
   {
-    'name': 'SPAIN',
-    'totalPlaces': '18 places',
+    'name': 'ITALY',
+    'totalPlaces': '6 places',
     'image': 'assets/images/venice.png',
     'description':
         " The Italian places of culture (which include museums, attractions, parks, archives and libraries) amounted to 6,610. Active hotel businesses are 33,000, while non-hotel businesses are 183,000. The tourist flow in the coastal resorts is 53% the best equipped cities are Grosseto for farmhouses, Vieste for campsites and tourist villages  and Cortina d'Ampezzo mountain huts. ",
@@ -81,7 +81,7 @@ final countryMap = {
         'title': 'Milan',
         'image': 'assets/images/venice.png',
         'duration': '5 days',
-        'destination': 'Hawai, USA',
+        'destination': 'Milan, Italy',
         'price': '\$386',
         'experiences':
             'Lorem ipsum doremat something hads to do with the sthihnbgs antd sthat aklg a dshdhd Lorem ipsum doremat something hads to do with the sthihnbgs antd something and dreams come true sthat aklg a dshdhd Lorem ipsum doremat something hads to do with the sthihnbgs antd something and dreams come true sthat aklg a dshdhd ',
@@ -91,7 +91,7 @@ final countryMap = {
         'title': 'Rome',
         'image': 'assets/images/venice.png',
         'duration': '4 days',
-        'destination': 'Hawai, USA',
+        'destination': 'Rome, Italy',
         'price': '\$386',
         'experiences':
             'Roman art and architecture often feature beautiful mosaic tiles and patterns, creating masterpieces that last for centuries. Hosted in a family-owned mosaic studio, this experience provides you with the opportunity to work with local marble tiles to create a traditional Roman mosaic of your own. You will learn about texture, composition and marble tile cutting and hear stories about the history of the craft in Rome.',

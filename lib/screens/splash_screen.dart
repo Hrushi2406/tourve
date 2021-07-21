@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:tourve/core/navigation.dart';
 
 import '../constant.dart';
 import '../core/ui_helper.dart';
@@ -58,8 +59,9 @@ class _SplashScreenState extends State<SplashScreen>
       if (status == AnimationStatus.completed) {
         await Future.delayed(const Duration(milliseconds: 1000));
         scheduleMicrotask(() {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => const HomeScreen()));
+          navigate(context, const HomeScreen());
+          // Navigator.of(context)
+          //     .push(MaterialPageRoute(builder: (_) => const HomeScreen()));
         });
       }
     });
@@ -79,7 +81,7 @@ class _SplashScreenState extends State<SplashScreen>
         children: [
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(0),
               image: const DecorationImage(
                 image: AssetImage('assets/images/splash.png'),
                 fit: BoxFit.cover,
@@ -97,14 +99,20 @@ class _SplashScreenState extends State<SplashScreen>
           ),
 
           //Cetnered Text
-          Center(
-            child: FadeTransition(
-              opacity: _nameAnimation,
-              child: Hero(
-                tag: 'tourve',
-                child: Text(
-                  'TOURVE',
-                  style: kLargeTitle,
+          GestureDetector(
+            onTap: () {
+              navigate(context, const HomeScreen());
+            },
+            child: Hero(
+              tag: 'tourve',
+              child: Align(
+                alignment: Alignment.center,
+                child: FadeTransition(
+                  opacity: _nameAnimation,
+                  child: Text(
+                    'TOURVE',
+                    style: kLargeTitle,
+                  ),
                 ),
               ),
             ),

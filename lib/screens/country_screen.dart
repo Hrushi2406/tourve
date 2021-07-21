@@ -34,7 +34,7 @@ class _CountryScreenState extends State<CountryScreen>
 
     _backgroundController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 300000),
+      duration: const Duration(milliseconds: 600000),
       lowerBound: 1,
       upperBound: 60,
       animationBehavior: AnimationBehavior.preserve,
