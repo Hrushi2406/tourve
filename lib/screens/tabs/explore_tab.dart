@@ -87,12 +87,9 @@ class _ExploreTabState extends State<ExploreTab>
               final country = countryList[index];
               return SlideTransition(
                 position: Tween<Offset>(
-                        begin: const Offset(0.3, 0), end: const Offset(0, 0))
+                        begin: const Offset(0.2, 0), end: const Offset(0, 0))
                     .animate(
-                  CurvedAnimation(
-                    parent: animation,
-                    curve: Curves.easeOut,
-                  ),
+                  CurvedAnimation(parent: animation, curve: Curves.easeOut),
                 ),
                 child: Column(
                   children: [

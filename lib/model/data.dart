@@ -3,7 +3,7 @@ import 'trip.dart';
 final upcomingTripsMap = [
   {
     'title': 'Waipio Valley',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/upcoming_1.png',
     'duration': '4 days',
     'destination': 'Hawai, USA',
     'price': '\$386',
@@ -12,7 +12,7 @@ final upcomingTripsMap = [
   },
   {
     'title': 'Glacier Hiking',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/upcoming_2.png',
     'duration': '3 days',
     'destination': 'Hardangervidda, Norway',
     'price': '\$149',
@@ -21,7 +21,7 @@ final upcomingTripsMap = [
   },
   {
     'title': 'Sagarda Familia',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/upcoming_3.png',
     'duration': '2 days',
     'destination': 'Barcelona, Spain',
     'price': '\$69',
@@ -30,7 +30,7 @@ final upcomingTripsMap = [
   },
   {
     'title': 'Bora Bora Island',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/upcoming_4.png',
     'duration': '8 days',
     'destination': 'French Polynesia, France',
     'price': '\$489',
@@ -42,7 +42,7 @@ final upcomingTripsMap = [
 final homeCountryMap = [
   {
     'title': 'Indian Highlights',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/home_country_1.png',
     'duration': '24 places',
     'destination': 'Hawai, USA',
     'price': '\$386',
@@ -51,7 +51,7 @@ final homeCountryMap = [
   },
   {
     'title': 'Spanish Arch',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/home_country_2.png',
     'duration': '15 places',
     'destination': 'Hardangervidda, Norway',
     'price': '\$149',
@@ -60,7 +60,7 @@ final homeCountryMap = [
   },
   {
     'title': 'Britian Palace',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/home_country_3.png',
     'duration': '14 places',
     'destination': 'Barcelona, Spain',
     'price': '\$69',
@@ -69,7 +69,7 @@ final homeCountryMap = [
   },
   {
     'title': 'Scandinavia',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/home_country_4.png',
     'duration': '9 places',
     'destination': 'French Polynesia, France',
     'price': '\$489',
@@ -81,7 +81,7 @@ final homeCountryMap = [
 final moodsMap = [
   {
     'title': 'Hiking',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/mood_1.png',
     'duration': '5 trips',
     'destination': 'Hawai, USA',
     'price': '\$386',
@@ -90,7 +90,7 @@ final moodsMap = [
   },
   {
     'title': 'Paragliding',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/mood_2.png',
     'duration': '6 trips',
     'destination': 'Hardangervidda, Norway',
     'price': '\$149',
@@ -99,7 +99,7 @@ final moodsMap = [
   },
   {
     'title': 'Museum',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/mood_3.png',
     'duration': '8 trips',
     'destination': 'Barcelona, Spain',
     'price': '\$69',
@@ -108,7 +108,7 @@ final moodsMap = [
   },
   {
     'title': 'Historical',
-    'image': 'assets/images/venice.png',
+    'image': 'assets/images/mood_4.png',
     'duration': '5 trips',
     'destination': 'French Polynesia, France',
     'price': '\$489',
