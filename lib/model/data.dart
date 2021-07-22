@@ -16,7 +16,8 @@ final upcomingTripsMap = [
     'duration': '3 days',
     'destination': 'Hardangervidda, Norway',
     'price': '\$149',
-    'experiences': 'Something goes here',
+    'experiences':
+        'Glaciers are found on every continent except for Australia. They need a specific climate: generally a lot of snowfall during the winter and relatively cool temperatures during the summer. Glacier Hiking has become a tourist attraction in some countries, but it requires special knowledge of the constantly-changing environments and glacial features. Hazards like crevasses and serac are difficult obstacles that glacier hikers should be aware of during this activity.',
     'extraDuration': 'For 3 days and 2 nights',
   },
   {

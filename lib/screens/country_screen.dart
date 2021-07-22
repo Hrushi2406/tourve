@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tourve/model/country.dart';
 
 import '../constant.dart';
 import '../core/ui_helper.dart';
+import '../model/country.dart';
 import '../model/trip.dart';
 import 'tabs/home_tab.dart';
 
@@ -111,11 +111,82 @@ class _CountryScreenState extends State<CountryScreen>
                 gradient: LinearGradient(
                   colors: [
                     Colors.black.withOpacity(0),
-                    Colors.black.withOpacity(0.6),
+                    Colors.black.withOpacity(0.7),
                     Colors.black,
                   ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 15.0,
+                    vertical: rh(50),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Center(
+                        child: FadeTransition(
+                          opacity: _titleAnimation,
+                          child: Text(
+                            widget.country.name,
+                            textAlign: TextAlign.center,
+                            style: kLargeTitle.copyWith(
+                              fontSize: rf(30),
+                              letterSpacing: 20,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: rh(20)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                        child: Center(
+                          child: FadeTransition(
+                            opacity: _descriptionAnimation,
+                            child: Text(
+                              widget.country.description,
+                              textAlign: TextAlign.center,
+                              style: kQuoteStyle.copyWith(
+                                fontSize: rf(14),
+                                letterSpacing: 0,
+                                height: 1.5,
+
+                                // fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: rh(50)),
+                      SizedBox(
+                        height: rh(175),
+                        child: ListView.separated(
+                          itemCount: widget.country.places.length,
+                          scrollDirection: Axis.horizontal,
+                          separatorBuilder: (BuildContext context, int index) {
+                            return SizedBox(width: rw(20));
+                          },
+                          itemBuilder: (BuildContext context, int index) {
+                            final Trip trip = widget.country.places[index];
+                            return SlideTransition(
+                              position: _listAnimation,
+                              child: NormalCard(
+                                isCountry: true,
+                                trip: trip,
+                                isTextWhite: true,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -130,77 +201,6 @@ class _CountryScreenState extends State<CountryScreen>
               child: const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 15.0,
-                vertical: rh(50),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Center(
-                    child: FadeTransition(
-                      opacity: _titleAnimation,
-                      child: Text(
-                        widget.country.name,
-                        textAlign: TextAlign.center,
-                        style: kLargeTitle.copyWith(
-                          fontSize: rf(30),
-                          letterSpacing: 20,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: rh(20)),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Center(
-                      child: FadeTransition(
-                        opacity: _descriptionAnimation,
-                        child: Text(
-                          widget.country.description,
-                          textAlign: TextAlign.center,
-                          style: kQuoteStyle.copyWith(
-                            fontSize: rf(14),
-                            letterSpacing: 0,
-                            height: 1.5,
-
-                            // fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: rh(50)),
-                  SizedBox(
-                    height: rh(175),
-                    child: ListView.separated(
-                      itemCount: widget.country.places.length,
-                      scrollDirection: Axis.horizontal,
-                      separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(width: rw(20));
-                      },
-                      itemBuilder: (BuildContext context, int index) {
-                        final Trip trip = widget.country.places[index];
-                        return SlideTransition(
-                          position: _listAnimation,
-                          child: NormalCard(
-                            isCountry: true,
-                            trip: trip,
-                            isTextWhite: true,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
               ),
             ),
           ),

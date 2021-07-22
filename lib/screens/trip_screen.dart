@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tourve/constant.dart';
-import 'package:tourve/core/ui_helper.dart';
-import 'package:tourve/model/trip.dart';
-import 'package:tourve/screens/done_screen.dart';
-import 'package:tourve/widgets/button/custom_button.dart';
-import 'package:tourve/widgets/open_sheet/open_bottom_sheet.dart';
+
+import '../constant.dart';
+import '../core/ui_helper.dart';
+import '../model/trip.dart';
+import '../widgets/button/custom_button.dart';
+import '../widgets/open_sheet/open_bottom_sheet.dart';
+import 'done_screen.dart';
 
 class TripScreen extends StatefulWidget {
   const TripScreen({

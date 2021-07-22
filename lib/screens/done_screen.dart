@@ -1,8 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:tourve/core/navigation.dart';
-import 'package:tourve/screens/tabs/home_tab.dart';
 
 import '../constant.dart';
+import 'home_screen.dart';
 
 class DoneScreen extends StatefulWidget {
   const DoneScreen({Key? key}) : super(key: key);
@@ -14,14 +15,21 @@ class _DoneScreenState extends State<DoneScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 3500), () {
-      // navigate(context, );
-      // Navigator.pop(context);
-    });
+  }
+
+  Future<void> change() async {
+    log('done');
+    await Future.delayed(const Duration(milliseconds: 3500));
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        (route) => false);
+    // navigate(context, const HomeScreen());
   }
 
   @override
   Widget build(BuildContext context) {
+    change();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -35,9 +43,11 @@ class _DoneScreenState extends State<DoneScreen> {
           ),
           Text("Your booking has been Confirm",
               style: kQuoteStyle.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18)),
+                letterSpacing: 0,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
         ],
       ),
     );

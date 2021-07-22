@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tourve/core/navigation.dart';
-import 'package:tourve/screens/trip_screen.dart';
 
 import '../../constant.dart';
+import '../../core/navigation.dart';
 import '../../core/ui_helper.dart';
 import '../../model/data.dart';
 import '../../model/trip.dart';
+import '../trip_screen.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({

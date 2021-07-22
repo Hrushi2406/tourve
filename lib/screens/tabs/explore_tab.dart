@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tourve/core/navigation.dart';
-import 'package:tourve/model/country.dart';
-import 'package:tourve/model/country_data.dart';
 
 import '../../constant.dart';
+import '../../core/navigation.dart';
 import '../../core/ui_helper.dart';
+import '../../model/country.dart';
+import '../../model/country_data.dart';
 import '../country_screen.dart';
 
 class ExploreTab extends StatefulWidget {

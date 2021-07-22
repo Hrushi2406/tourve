@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tourve/core/navigation.dart';
 
 import '../constant.dart';
+import '../core/navigation.dart';
 import '../core/ui_helper.dart';
 import 'home_screen.dart';
 
@@ -84,7 +84,7 @@ class _SplashScreenState extends State<SplashScreen>
               borderRadius: BorderRadius.circular(0),
               image: const DecorationImage(
                 image: AssetImage('assets/images/splash.png'),
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
             child: AnimatedBuilder(
@@ -108,7 +108,6 @@ class _SplashScreenState extends State<SplashScreen>
               child: Material(
                 type: MaterialType.transparency,
                 child: Align(
-                  alignment: Alignment.center,
                   child: FadeTransition(
                     opacity: _nameAnimation,
                     child: Text(

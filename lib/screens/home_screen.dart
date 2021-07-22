@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen>
         //       tripsList: upcomingTrips,
         //     ),
 
-        //     SizedBox(height: rh(30)),
+            // SizedBox(height: rh(30)),
 
         //     CardWithTitle(
         //       title: 'Explore by moods',

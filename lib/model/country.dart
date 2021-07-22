@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:tourve/model/trip.dart';
+
+import 'trip.dart';
 
 class Country {
   final String name;
