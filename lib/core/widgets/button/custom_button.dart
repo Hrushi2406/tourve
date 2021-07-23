@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/ui_helper.dart';
+import '../../ui_helper.dart';
 import '../icon/custom_icon.dart';
 import 'platform_button.dart';
 

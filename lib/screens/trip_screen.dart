@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../constant.dart';
 import '../core/ui_helper.dart';
+import '../core/widgets/button/custom_button.dart';
+import '../core/widgets/open_sheet/open_bottom_sheet.dart';
 import '../model/trip.dart';
-import '../widgets/button/custom_button.dart';
-import '../widgets/open_sheet/open_bottom_sheet.dart';
 import 'done_screen.dart';
 
 class TripScreen extends StatefulWidget {
