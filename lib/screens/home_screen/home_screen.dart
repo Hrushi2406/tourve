@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/ui_helper.dart';
+import '../../core/ui_helper.dart';
 import 'tabs/explore_tab.dart';
 import 'tabs/home_tab.dart';
 
@@ -13,10 +13,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+  //Animation Controller
   late final AnimationController _animationController;
+  //Animation for 1st list
   late final Animation<Offset> _animation1;
+  //Animation for 2nd list
   late final Animation<Offset> _animation2;
+  //Animation for 3rd list
   late final Animation<Offset> _animation3;
+
   int _currentIndex = 0;
 
   @override
@@ -27,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen>
       duration: const Duration(milliseconds: 1500),
     );
 
-    // _animation = Tween<double>(begin: 0, end: 1).animate(_animationController);
     _animation1 =
         Tween<Offset>(begin: const Offset(0.5, 0), end: const Offset(0, 0))
             .animate(
@@ -77,53 +81,6 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       body: SingleChildScrollView(
         child: _tabs[_currentIndex],
-        // child: Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: <Widget>[
-        //     SizedBox(height: rh(75)),
-        //     //TItle
-        //     Hero(
-        //       tag: 'tourve',
-        //       child: Center(
-        //         child: Text(
-        //           'TOURVE',
-        //           style: kLargeTitle.copyWith(
-        //             color: Colors.black,
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-
-        //     SizedBox(height: rh(50)),
-        //     //First Row
-
-        //     //Cards
-        //     CardWithTitle(
-        //       title: 'Upcoming trips',
-        //       animation: _animation1,
-        //       tripsList: upcomingTrips,
-        //     ),
-
-        //     SizedBox(height: rh(30)),
-
-        //     CardWithTitle(
-        //       title: 'Explore by country',
-        //       isCountry: true,
-        //       animation: _animation2,
-        //       tripsList: upcomingTrips,
-        //     ),
-
-            // SizedBox(height: rh(30)),
-
-        //     CardWithTitle(
-        //       title: 'Explore by moods',
-        //       animation: _animation3,
-        //       tripsList: upcomingTrips,
-        //     ),
-
-        //     SizedBox(height: rh(40)),
-        //   ],
-        // ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,

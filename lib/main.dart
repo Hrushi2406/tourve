@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/size_config.dart';
-import 'screens/splash_screen.dart';
+import 'screens/splash_screen/splash_screen.dart';
 
 void main() {
   runApp(MyApp());

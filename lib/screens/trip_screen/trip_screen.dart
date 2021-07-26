@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../constant.dart';
-import '../core/ui_helper.dart';
-import '../core/widgets/button/custom_button.dart';
-import '../core/widgets/open_sheet/open_bottom_sheet.dart';
-import '../model/trip.dart';
-import 'done_screen.dart';
+import '../../constant.dart';
+import '../../core/ui_helper.dart';
+import '../../core/widgets/button/custom_button.dart';
+import '../../core/widgets/open_sheet/open_bottom_sheet.dart';
+import '../../model/trip.dart';
+import '../done_screen/done_screen.dart';
 
 class TripScreen extends StatefulWidget {
   const TripScreen({
@@ -20,6 +20,20 @@ class TripScreen extends StatefulWidget {
 }
 
 class _TripScreenState extends State<TripScreen> {
+  Future<void> openBottomSheet({
+    required BuildContext context,
+    required Widget child,
+    Color? backgroundColor,
+  }) async {
+    await showModalBottomSheet(
+      context: context,
+      backgroundColor:
+          backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
+      enableDrag: true,
+      builder: (context) => child,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,22 +64,6 @@ class _TripScreenState extends State<TripScreen> {
                           end: Alignment.bottomCenter,
                         ),
                       ),
-                      // child: Padding(
-                      //   padding: EdgeInsets.only(bottom: rh(20.0)),
-                      //   child: Column(
-                      //     mainAxisAlignment: MainAxisAlignment.end,
-                      //     children: [
-                      //       Text(
-                      //         widget.trip.title.toUpperCase(),
-                      //         style: kLargeTitle.copyWith(
-                      //           letterSpacing: 8,
-                      //           fontWeight: FontWeight.w900,
-                      //           fontSize: rf(18),
-                      //         ),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
                     ),
                   ),
                 ),
@@ -126,7 +124,7 @@ class _TripScreenState extends State<TripScreen> {
                   SizedBox(height: rh(10)),
 
                   Text(
-                    widget.trip.experiences ?? "Something goes here",
+                    widget.trip.experiences ?? "Something Dummy Text",
                     style: TextStyle(
                       fontSize: rf(12),
                       height: rh(1.3),
@@ -185,7 +183,8 @@ class _TripScreenState extends State<TripScreen> {
                                 text: 'Confirm',
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (_) => const DoneScreen()));
+                                    builder: (_) => const DoneScreen(),
+                                  ));
                                 },
                               ),
                             ],

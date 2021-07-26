@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../constant.dart';
-import '../core/ui_helper.dart';
-import '../model/country.dart';
-import '../model/trip.dart';
-import 'tabs/home_tab.dart';
+import '../../constant.dart';
+import '../../core/ui_helper.dart';
+import '../../model/country.dart';
+import '../../model/trip.dart';
+import '../home_screen/widgets/normal_card.dart';
 
 class CountryScreen extends StatefulWidget {
   const CountryScreen({required this.country, Key? key}) : super(key: key);
@@ -16,22 +16,30 @@ class CountryScreen extends StatefulWidget {
 
 class _CountryScreenState extends State<CountryScreen>
     with TickerProviderStateMixin {
+  //Main Animation Controller
   late final AnimationController _animationController;
+  //Background image animation controller
   late final AnimationController _backgroundController;
 
+//Black layer animation Fadein
   late final Animation<double> _layerAnimation;
+  //Title animation Fadein
   late final Animation<double> _titleAnimation;
+  //Description animation Fadein
   late final Animation<double> _descriptionAnimation;
+  //list animation Slide in
   late final Animation<Offset> _listAnimation;
 
   @override
   void initState() {
     super.initState();
+    //Main controller
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 2500),
     );
 
+//background image controller
     _backgroundController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 600000),
@@ -70,6 +78,7 @@ class _CountryScreenState extends State<CountryScreen>
 
     _animationController.forward();
     _backgroundController.forward();
+
     _backgroundController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         _backgroundController.reverse();
@@ -156,8 +165,6 @@ class _CountryScreenState extends State<CountryScreen>
                                 fontSize: rf(14),
                                 letterSpacing: 0,
                                 height: 1.5,
-
-                                // fontWeight: FontWeight.w900,
                               ),
                             ),
                           ),

@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../constant.dart';
-import '../core/navigation.dart';
-import '../core/ui_helper.dart';
-import 'home_screen.dart';
+import '../../constant.dart';
+import '../../core/navigation.dart';
+import '../../core/ui_helper.dart';
+import '../home_screen/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -16,14 +16,19 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
+  //Controller for animation
   late final AnimationController _animationController;
+  //Color animation fot the black layer
   late final Animation<Color?> _colorAnimation;
+  //The title animations fade in
   late final Animation<double> _nameAnimation;
+  //quote animation fade in
   late final Animation<double> _quoteAnimation;
 
   @override
   void initState() {
     super.initState();
+    //Initialize controller
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 3000),
@@ -53,15 +58,15 @@ class _SplashScreenState extends State<SplashScreen>
       ),
     );
 
+    //Starts animation
     _animationController.forward();
 
     _animationController.addStatusListener((status) async {
+//After animation is completed navigate to Home screen
       if (status == AnimationStatus.completed) {
         await Future.delayed(const Duration(milliseconds: 1000));
         scheduleMicrotask(() {
           navigate(context, const HomeScreen());
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (_) => const HomeScreen()));
         });
       }
     });
@@ -80,40 +85,33 @@ class _SplashScreenState extends State<SplashScreen>
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(0),
-              image: const DecorationImage(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
                 image: AssetImage('assets/images/splash.png'),
                 fit: BoxFit.fill,
               ),
             ),
+            //The Black Overlay Animation
             child: AnimatedBuilder(
               animation: _colorAnimation,
               builder: (BuildContext context, Widget? child) {
                 return Container(
-                  // color: Colors.black.withOpacity(0.6),
                   color: _colorAnimation.value,
                 );
               },
             ),
           ),
 
-          //Cetnered Text
-          GestureDetector(
-            onTap: () {
-              navigate(context, const HomeScreen());
-            },
-            child: Hero(
-              tag: 'tourve',
-              child: Material(
-                type: MaterialType.transparency,
-                child: Align(
-                  child: FadeTransition(
-                    opacity: _nameAnimation,
-                    child: Text(
-                      'TOURVE',
-                      style: kLargeTitle,
-                    ),
+          Hero(
+            tag: 'tourve',
+            child: Material(
+              type: MaterialType.transparency,
+              child: Align(
+                child: FadeTransition(
+                  opacity: _nameAnimation,
+                  child: Text(
+                    'TOURVE',
+                    style: kLargeTitle,
                   ),
                 ),
               ),

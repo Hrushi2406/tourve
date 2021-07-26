@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tourve/core/navigation.dart';
+import 'package:tourve/core/ui_helper.dart';
+import 'package:tourve/model/country.dart';
+import 'package:tourve/model/country_data.dart';
 
-import '../../constant.dart';
-import '../../core/navigation.dart';
-import '../../core/ui_helper.dart';
-import '../../model/country.dart';
-import '../../model/country_data.dart';
-import '../country_screen.dart';
+import '../../../constant.dart';
+import '../../country_screen/country_screen.dart';
 
 class ExploreTab extends StatefulWidget {
   const ExploreTab({Key? key}) : super(key: key);
@@ -26,7 +26,6 @@ class _ExploreTabState extends State<ExploreTab>
       duration: const Duration(milliseconds: 250),
     );
 
-    // _animationController.forward();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       addItems();
     });
@@ -122,23 +121,6 @@ class CountryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.of(context).push(PageRouteBuilder(
-        //   transitionDuration: const Duration(milliseconds: 450),
-        //   transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        //     return FadeTransition(
-        //       opacity: Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
-        //         parent: animation,
-        //         curve: Curves.fastOutSlowIn,
-        //       )),
-        //       child: child,
-        //     );
-        //   },
-        //   pageBuilder: (context, animation, secondaryAnimation) {
-        //     return CountryScreen(
-        //       country: country,
-        //     );
-        //   },
-        // ));
         navigate(context, CountryScreen(country: country));
       },
       child: SizedBox(
